@@ -1,0 +1,13 @@
+- name: APP Copy Certificate to /etc/ssl/
+  copy: src={{ certificate_file }} dest=/etc/ssl/{{ certificate_file }} owner=root group=root mode="u=r,g=,o="
+  notify: NGINX Restart Nginx Service
+  when:  certificate_file is defined
+
+- name: APP Copy Private key to /etc/ssl/
+  copy: src={{ privatekey_file }} dest=/etc/ssl/{{ privatekey_file }}   owner=root group=root mode="u=r,g=,o="
+  notify: NGINX Restart Nginx Service
+  when:  privatekey_file is defined
+
+- name: APP Copy server conf file to sites-enabled
+  template: src={{ template }} dest=/etc/nginx/sites-enabled/{{ site_url }} owner=root group=root mode="u=rw,g=,o="
+  notify: NGINX Restart Nginx Service
