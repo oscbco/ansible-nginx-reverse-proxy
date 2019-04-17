@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Role setting up Nginx as a reverse proxy for our node.js server
+Role setting up Nginx as a reverse proxy for our Node.js server and static server for our /public folder
 
 Requirements
 ------------
@@ -20,11 +20,9 @@ Example Playbook
       roles:
         - {
             role: oscbco.nginx_reverse_proxy_domain,
+            appdir: "{{ global_appdir }}",
             site_url: oscbco.me,
-            appname: "{{ global_appname }}",
-            template: "./server_dev.j2",
-            certificate_file: "./oscbco.me.crt",
-            privatekey_file: "./oscbco.me.pem"
+            appport: "3000"
           }
 
 License

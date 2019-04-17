@@ -1,6 +1,6 @@
 galaxy_info:
   author: Oscar Barrera
-  role_name: nginx-reverse-proxy-domain
+  role_name: nginx-reverse-proxy
   description: Role setting up Nginx as a reverse proxy for our node.js server
   license: license (MIT)
   min_ansible_version: 2.5
